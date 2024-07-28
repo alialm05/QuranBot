@@ -25,12 +25,14 @@ module.exports = (queue, track) => {
         }
       }      
 
+      //<:quranicon1:1258320896616038563>
+
       const embed = new EmbedBuilder()
       .setColor("Green")
       .setTitle(`Quran Bot is currently Playing: `)
       .setDescription(`
-        <:quranicon1:1258320896616038563> ${client.chapters[ch][0]} ${client.chapters[ch][1]}
-        \n🧏‍♂️ ${reciterName}`);
+        📗 ${client.chapters[ch][0]} ${client.chapters[ch][1]}
+        \n🧏‍♂️ ${reciterName ? reciterName : "Abdul Baset"}`);
 
     /*const back = new ButtonBuilder()
       .setLabel(EmojiState ? emojis.back : ('Back'))
@@ -62,7 +64,7 @@ module.exports = (queue, track) => {
       resumepause,
     );
 
-      inter.channel.send({ embeds: [embed], components: [row1] });
+      inter.editReply({ embeds: [embed], components: [row1], ephermal: true });
     }
     })();
 };

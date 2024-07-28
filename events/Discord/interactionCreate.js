@@ -17,9 +17,12 @@ module.exports = async (client, inter) => {
 
     //console.log(inter.options)
     if (inter.type === InteractionType.ApplicationCommand) {
-        await inter.deferReply({ ephemeral: true });
+        console.log(inter.commandName);
+        inter.commandName === "get-verse" ? await inter.deferReply({ ephemeral: false }) : await inter.deferReply({ ephemeral: true });
+
         const DJ = client.config.opt.DJ;
         const command = client.commands.get(inter.commandName);
+        //console.log(command.permissions)
 
         const errorEmbed = new EmbedBuilder().setColor('#ff0000');
 

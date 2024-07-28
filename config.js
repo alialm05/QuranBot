@@ -3,6 +3,7 @@ module.exports = {
         playing: '/play-chapter',
         global: true,
         guild: '1219010966377857094',
+        clientId: '1217998534213763172',
         extraMessages: false,
         loopMessage: false,
         lang: 'en',

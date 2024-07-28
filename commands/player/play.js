@@ -55,8 +55,24 @@ module.exports = {
         var strCh = chNum.toString()
         var strRId = RId.toString()
         var url;
-
         
+        const clientId = client.config.app.clientId
+        const permArray = interaction.channel.permissionsFor(clientId).toArray() 
+        console.log(permArray)
+
+        if((//!permArray.includes("EmbedLinks") ||*/
+            !permArray.includes("Connect") 
+            || !permArray.includes("Speak"))){
+            console.log("no Perms")
+            
+            if (permArray.includes("SendMessages")){
+                let defaultEmbed = new EmbedBuilder().setColor('Green');
+                defaultEmbed.setAuthor({ name: 'I do not have permissions ...' });
+                await interaction.editReply({ embeds: [defaultEmbed] });
+            }
+
+            return;
+        } 
 
         const player = useMainPlayer();
 
@@ -95,8 +111,8 @@ module.exports = {
             else{
                 console.log("error fetching audio")
             }
-                defaultEmbed.setAuthor({ name: 'Audio added to queue ...' });
-                await interaction.editReply({ embeds: [defaultEmbed] });
+                /*defaultEmbed.setAuthor({ name: 'Audio added to queue ...' });
+                await interaction.editReply({ embeds: [defaultEmbed] });*/
             })
 
                 

@@ -69,9 +69,21 @@ module.exports = {
         //await interaction.deferReply();
 
         try {
-            
+
             const{ channel, client, options, member, guild} = interaction;
             
+            const clientId = client.config.app.clientId
+            const permArray = interaction.channel.permissionsFor(clientId).toArray() 
+            
+            /*if(!permArray.includes("EmbedLinks")){
+                if (permArray.includes("SendMessages")){
+                    let defaultEmbed = new EmbedBuilder().setColor('Green');
+                    defaultEmbed.setAuthor({ name: 'I do not have permissions ...' });
+                    await interaction.editReply({ embeds: [defaultEmbed] });
+                }
+                return;
+            } */
+
             var c = interaction.options.getNumber('chapter')
             var v = interaction.options.getNumber('verse')
             
