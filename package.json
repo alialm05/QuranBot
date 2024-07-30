@@ -14,6 +14,7 @@
         "@discordjs/voice": "github:discordjs/voice",
         "@distube/ytdl-core": "^4.11.8",
         "@evan/opus": "^1.0.3",
+        "axios": "^1.7.2",
         "discord-player": "^6.6.9-dev.1",
         "discord.js": "^14.13.0",
         "dotenv": "^16.4.5",

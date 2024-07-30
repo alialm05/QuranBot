@@ -75,14 +75,15 @@ module.exports = {
             const clientId = client.config.app.clientId
             const permArray = interaction.channel.permissionsFor(clientId).toArray() 
             
-            /*if(!permArray.includes("EmbedLinks")){
-                if (permArray.includes("SendMessages")){
+            if(!permArray.includes("SendMessages")){
+                /*if (permArray.includes("SendMessages")){
                     let defaultEmbed = new EmbedBuilder().setColor('Green');
                     defaultEmbed.setAuthor({ name: 'I do not have permissions ...' });
                     await interaction.editReply({ embeds: [defaultEmbed] });
-                }
+                }*/
+               console.log("no sendMessages perms")
                 return;
-            } */
+            }
 
             var c = interaction.options.getNumber('chapter')
             var v = interaction.options.getNumber('verse')

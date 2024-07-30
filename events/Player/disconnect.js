@@ -14,6 +14,6 @@ module.exports = (queue) => {
         .setAuthor({ name: await Translate(`Disconnected from the voice channel <❌>`)})
         .setColor('Green');
 
-        queue.metadata.channel.send({ embeds: [embed] });
+        queue.metadata.channel.send({ embeds: [embed], ephermal: true });
     })()
 }

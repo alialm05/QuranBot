@@ -58,7 +58,8 @@ module.exports = {
         
         const clientId = client.config.app.clientId
         const permArray = interaction.channel.permissionsFor(clientId).toArray() 
-        console.log(permArray)
+        const vcPermArray = interaction.member.voice.channel.permissionsFor(clientId).toArray();
+        //console.log(vcPermArray)
 
         if((//!permArray.includes("EmbedLinks") ||*/
             !permArray.includes("Connect") 
@@ -68,6 +69,20 @@ module.exports = {
             if (permArray.includes("SendMessages")){
                 let defaultEmbed = new EmbedBuilder().setColor('Green');
                 defaultEmbed.setAuthor({ name: 'I do not have permissions ...' });
+                await interaction.editReply({ embeds: [defaultEmbed] });
+            }
+
+            return;
+        }
+
+        if((//!permArray.includes("EmbedLinks") ||*/
+            !vcPermArray.includes("Connect") 
+            || !vcPermArray.includes("Speak"))){
+            console.log("no Perms in vc")
+            
+            if (permArray.includes("SendMessages")){
+                let defaultEmbed = new EmbedBuilder().setColor('Green');
+                defaultEmbed.setAuthor({ name: 'I do not have permissions to join your VC ...' });
                 await interaction.editReply({ embeds: [defaultEmbed] });
             }
 
