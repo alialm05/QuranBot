@@ -31,7 +31,7 @@ module.exports = (queue, track) => {
       .setColor("Green")
       .setTitle(`Quran Bot is currently Playing: `)
       .setDescription(`
-        📗 ${client.chapters[ch][0]} ${client.chapters[ch][1]}
+        📗 ${client.chapters[ch-1][0]} ${client.chapters[ch-1][1]}
         \n🧏‍♂️ ${reciterName ? reciterName : "Abdul Baset"}`);
 
     /*const back = new ButtonBuilder()
