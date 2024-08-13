@@ -55,7 +55,9 @@ module.exports = async (client, inter) => {
         }
 
         command.execute(inter, client);
-    } else if (inter.type === InteractionType.MessageComponent) {
+        
+    } 
+    else if (inter.type === InteractionType.MessageComponent) {
         const customId = inter.customId;
         if (!customId) return;
 
